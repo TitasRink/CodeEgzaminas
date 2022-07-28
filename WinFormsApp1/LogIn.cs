@@ -40,9 +40,17 @@ namespace WinFormsApp1
                 if (result)
                 {
                     UserID = user.ReturnIDUser(LogName);
-                    MainForm main = new MainForm();
-                    main.Show();
-                    this.Hide();
+                    if(UserID == 0)
+                    {
+                        MessageBox.Show("No user with this name");
+                    }
+                    else
+                    {
+                        MainForm main = new MainForm();
+                        main.Show();
+                        this.Hide();
+                    }
+                   
                 }
                 else
                 {
@@ -74,6 +82,7 @@ namespace WinFormsApp1
             {
                 user.CreatUser(LogName, Password);
                 MessageBox.Show("User created");
+                
                 return;
             }
         }

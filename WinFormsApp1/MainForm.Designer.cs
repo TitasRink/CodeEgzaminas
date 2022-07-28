@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +48,6 @@
             this.input12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.AddCategorybutton = new System.Windows.Forms.Button();
             this.RenameCategoryButton = new System.Windows.Forms.Button();
@@ -62,15 +61,18 @@
             this.ShowByCategoryButton = new System.Windows.Forms.Button();
             this.ShowALLButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.categoryAttributeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(48, 758);
+            this.button1.Location = new System.Drawing.Point(36, 733);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(97, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Log out";
             this.button1.UseVisualStyleBackColor = true;
@@ -79,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(310, 29);
+            this.label2.Location = new System.Drawing.Point(299, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 3;
@@ -88,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 47);
+            this.label3.Location = new System.Drawing.Point(53, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 15);
             this.label3.TabIndex = 4;
@@ -97,7 +99,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 147);
+            this.label4.Location = new System.Drawing.Point(33, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 5;
@@ -113,10 +115,10 @@
             this.Name});
             this.CategorylistView.HideSelection = false;
             this.CategorylistView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
-            this.CategorylistView.Location = new System.Drawing.Point(181, 47);
+            listViewItem1});
+            this.CategorylistView.Location = new System.Drawing.Point(150, 47);
             this.CategorylistView.Name = "CategorylistView";
-            this.CategorylistView.Size = new System.Drawing.Size(215, 286);
+            this.CategorylistView.Size = new System.Drawing.Size(204, 318);
             this.CategorylistView.TabIndex = 7;
             this.CategorylistView.UseCompatibleStateImageBehavior = false;
             this.CategorylistView.View = System.Windows.Forms.View.Details;
@@ -128,16 +130,16 @@
             // 
             // AddCategorytextBox1
             // 
-            this.AddCategorytextBox1.Location = new System.Drawing.Point(64, 65);
+            this.AddCategorytextBox1.Location = new System.Drawing.Point(36, 66);
             this.AddCategorytextBox1.Name = "AddCategorytextBox1";
-            this.AddCategorytextBox1.Size = new System.Drawing.Size(100, 23);
+            this.AddCategorytextBox1.Size = new System.Drawing.Size(97, 23);
             this.AddCategorytextBox1.TabIndex = 8;
             // 
             // RenameCategoryTextBox
             // 
-            this.RenameCategoryTextBox.Location = new System.Drawing.Point(64, 165);
+            this.RenameCategoryTextBox.Location = new System.Drawing.Point(36, 166);
             this.RenameCategoryTextBox.Name = "RenameCategoryTextBox";
-            this.RenameCategoryTextBox.Size = new System.Drawing.Size(100, 23);
+            this.RenameCategoryTextBox.Size = new System.Drawing.Size(97, 23);
             this.RenameCategoryTextBox.TabIndex = 9;
             // 
             // NoteListViewItem
@@ -147,10 +149,10 @@
             this.columnHeader2});
             this.NoteListViewItem.HideSelection = false;
             this.NoteListViewItem.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
-            this.NoteListViewItem.Location = new System.Drawing.Point(181, 375);
+            listViewItem2});
+            this.NoteListViewItem.Location = new System.Drawing.Point(150, 375);
             this.NoteListViewItem.Name = "NoteListViewItem";
-            this.NoteListViewItem.Size = new System.Drawing.Size(709, 352);
+            this.NoteListViewItem.Size = new System.Drawing.Size(605, 305);
             this.NoteListViewItem.TabIndex = 10;
             this.NoteListViewItem.UseCompatibleStateImageBehavior = false;
             this.NoteListViewItem.View = System.Windows.Forms.View.Details;
@@ -163,26 +165,26 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Message";
-            this.columnHeader2.Width = 500;
+            this.columnHeader2.Width = 400;
             // 
             // MessageAddInput
             // 
-            this.MessageAddInput.Location = new System.Drawing.Point(75, 404);
+            this.MessageAddInput.Location = new System.Drawing.Point(36, 419);
             this.MessageAddInput.Name = "MessageAddInput";
-            this.MessageAddInput.Size = new System.Drawing.Size(100, 23);
+            this.MessageAddInput.Size = new System.Drawing.Size(97, 23);
             this.MessageAddInput.TabIndex = 15;
             // 
             // NameAddInput
             // 
-            this.NameAddInput.Location = new System.Drawing.Point(74, 375);
+            this.NameAddInput.Location = new System.Drawing.Point(36, 375);
             this.NameAddInput.Name = "NameAddInput";
-            this.NameAddInput.Size = new System.Drawing.Size(100, 23);
+            this.NameAddInput.Size = new System.Drawing.Size(97, 23);
             this.NameAddInput.TabIndex = 14;
             // 
             // input12
             // 
             this.input12.AutoSize = true;
-            this.input12.Location = new System.Drawing.Point(12, 407);
+            this.input12.Location = new System.Drawing.Point(81, 401);
             this.input12.Name = "input12";
             this.input12.Size = new System.Drawing.Size(53, 15);
             this.input12.TabIndex = 12;
@@ -191,7 +193,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(26, 378);
+            this.label8.Location = new System.Drawing.Point(95, 357);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 15);
             this.label8.TabIndex = 11;
@@ -199,22 +201,16 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(592, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(376, 166);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(298, 247);
+            this.pictureBox1.Size = new System.Drawing.Size(175, 170);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(452, 310);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(438, 23);
-            this.textBox5.TabIndex = 17;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(452, 271);
+            this.button2.Location = new System.Drawing.Point(376, 342);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 18;
@@ -224,9 +220,9 @@
             // 
             // AddCategorybutton
             // 
-            this.AddCategorybutton.Location = new System.Drawing.Point(64, 94);
+            this.AddCategorybutton.Location = new System.Drawing.Point(36, 95);
             this.AddCategorybutton.Name = "AddCategorybutton";
-            this.AddCategorybutton.Size = new System.Drawing.Size(100, 23);
+            this.AddCategorybutton.Size = new System.Drawing.Size(97, 23);
             this.AddCategorybutton.TabIndex = 19;
             this.AddCategorybutton.Text = "Add";
             this.AddCategorybutton.UseVisualStyleBackColor = true;
@@ -234,9 +230,9 @@
             // 
             // RenameCategoryButton
             // 
-            this.RenameCategoryButton.Location = new System.Drawing.Point(64, 194);
+            this.RenameCategoryButton.Location = new System.Drawing.Point(36, 195);
             this.RenameCategoryButton.Name = "RenameCategoryButton";
-            this.RenameCategoryButton.Size = new System.Drawing.Size(101, 23);
+            this.RenameCategoryButton.Size = new System.Drawing.Size(97, 23);
             this.RenameCategoryButton.TabIndex = 20;
             this.RenameCategoryButton.Text = "Rename";
             this.RenameCategoryButton.UseVisualStyleBackColor = true;
@@ -244,9 +240,9 @@
             // 
             // AddButtonNote
             // 
-            this.AddButtonNote.Location = new System.Drawing.Point(74, 433);
+            this.AddButtonNote.Location = new System.Drawing.Point(36, 448);
             this.AddButtonNote.Name = "AddButtonNote";
-            this.AddButtonNote.Size = new System.Drawing.Size(100, 23);
+            this.AddButtonNote.Size = new System.Drawing.Size(97, 23);
             this.AddButtonNote.TabIndex = 21;
             this.AddButtonNote.Text = "Add";
             this.AddButtonNote.UseVisualStyleBackColor = true;
@@ -254,9 +250,9 @@
             // 
             // RenameNoteButton
             // 
-            this.RenameNoteButton.Location = new System.Drawing.Point(74, 525);
+            this.RenameNoteButton.Location = new System.Drawing.Point(36, 535);
             this.RenameNoteButton.Name = "RenameNoteButton";
-            this.RenameNoteButton.Size = new System.Drawing.Size(101, 23);
+            this.RenameNoteButton.Size = new System.Drawing.Size(97, 23);
             this.RenameNoteButton.TabIndex = 22;
             this.RenameNoteButton.Text = "Rename";
             this.RenameNoteButton.UseVisualStyleBackColor = true;
@@ -264,9 +260,9 @@
             // 
             // RemoveNoteButton
             // 
-            this.RemoveNoteButton.Location = new System.Drawing.Point(75, 586);
+            this.RemoveNoteButton.Location = new System.Drawing.Point(36, 590);
             this.RemoveNoteButton.Name = "RemoveNoteButton";
-            this.RemoveNoteButton.Size = new System.Drawing.Size(101, 43);
+            this.RemoveNoteButton.Size = new System.Drawing.Size(97, 43);
             this.RemoveNoteButton.TabIndex = 23;
             this.RemoveNoteButton.Text = "Remove";
             this.RemoveNoteButton.UseVisualStyleBackColor = true;
@@ -274,9 +270,9 @@
             // 
             // RemoveCategoryButton
             // 
-            this.RemoveCategoryButton.Location = new System.Drawing.Point(64, 289);
+            this.RemoveCategoryButton.Location = new System.Drawing.Point(36, 290);
             this.RemoveCategoryButton.Name = "RemoveCategoryButton";
-            this.RemoveCategoryButton.Size = new System.Drawing.Size(101, 43);
+            this.RemoveCategoryButton.Size = new System.Drawing.Size(97, 43);
             this.RemoveCategoryButton.TabIndex = 24;
             this.RemoveCategoryButton.Text = "Remove";
             this.RemoveCategoryButton.UseVisualStyleBackColor = true;
@@ -284,15 +280,15 @@
             // 
             // NoteEdittextBox
             // 
-            this.NoteEdittextBox.Location = new System.Drawing.Point(75, 496);
+            this.NoteEdittextBox.Location = new System.Drawing.Point(36, 506);
             this.NoteEdittextBox.Name = "NoteEdittextBox";
-            this.NoteEdittextBox.Size = new System.Drawing.Size(100, 23);
+            this.NoteEdittextBox.Size = new System.Drawing.Size(97, 23);
             this.NoteEdittextBox.TabIndex = 26;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 499);
+            this.label5.Location = new System.Drawing.Point(81, 488);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 15);
             this.label5.TabIndex = 27;
@@ -300,7 +296,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(181, 749);
+            this.button3.Location = new System.Drawing.Point(150, 686);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(184, 32);
             this.button3.TabIndex = 28;
@@ -310,7 +306,7 @@
             // 
             // ShowByCategoryButton
             // 
-            this.ShowByCategoryButton.Location = new System.Drawing.Point(417, 82);
+            this.ShowByCategoryButton.Location = new System.Drawing.Point(376, 48);
             this.ShowByCategoryButton.Name = "ShowByCategoryButton";
             this.ShowByCategoryButton.Size = new System.Drawing.Size(134, 23);
             this.ShowByCategoryButton.TabIndex = 29;
@@ -320,7 +316,7 @@
             // 
             // ShowALLButton
             // 
-            this.ShowALLButton.Location = new System.Drawing.Point(417, 127);
+            this.ShowALLButton.Location = new System.Drawing.Point(376, 95);
             this.ShowALLButton.Name = "ShowALLButton";
             this.ShowALLButton.Size = new System.Drawing.Size(134, 23);
             this.ShowALLButton.TabIndex = 30;
@@ -330,7 +326,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(384, 749);
+            this.button4.Location = new System.Drawing.Point(150, 724);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(167, 32);
             this.button4.TabIndex = 31;
@@ -338,11 +334,32 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(578, 342);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 32;
+            this.button5.Text = "Load IMG";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(578, 166);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(165, 170);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 817);
+            this.ClientSize = new System.Drawing.Size(804, 781);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.ShowALLButton);
             this.Controls.Add(this.ShowByCategoryButton);
@@ -356,7 +373,6 @@
             this.Controls.Add(this.RenameCategoryButton);
             this.Controls.Add(this.AddCategorybutton);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.MessageAddInput);
             this.Controls.Add(this.NameAddInput);
@@ -370,9 +386,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
+            this.MaximumSize = new System.Drawing.Size(820, 820);
+            this.MinimumSize = new System.Drawing.Size(820, 820);
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "main";
             ((System.ComponentModel.ISupportInitialize)(this.categoryAttributeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,7 +415,6 @@
         private System.Windows.Forms.Label input12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button AddCategorybutton;
         private System.Windows.Forms.Button RenameCategoryButton;
@@ -410,5 +430,7 @@
         private System.Windows.Forms.Button ShowByCategoryButton;
         private System.Windows.Forms.Button ShowALLButton;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

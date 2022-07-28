@@ -4,14 +4,16 @@ using FrameworkData.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FrameworkData.Migrations
 {
     [DbContext(typeof(DataConection))]
-    partial class DataConectionModelSnapshot : ModelSnapshot
+    [Migration("20220728072558_five")]
+    partial class five
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,7 +136,7 @@ namespace FrameworkData.Migrations
             modelBuilder.Entity("FrameworkData.Model.Image", b =>
                 {
                     b.HasOne("FrameworkData.Model.Note", "Note")
-                        .WithMany("Images")
+                        .WithMany()
                         .HasForeignKey("NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -149,11 +151,6 @@ namespace FrameworkData.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FrameworkData.Model.Note", b =>
-                {
-                    b.Navigation("Images");
                 });
 
             modelBuilder.Entity("FrameworkData.Model.User", b =>

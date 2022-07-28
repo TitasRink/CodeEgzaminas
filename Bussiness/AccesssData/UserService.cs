@@ -36,8 +36,17 @@ namespace Bussiness.AccesssData
 
         public int ReturnIDUser(string user)
         {
-            var r = context.Users.Where(x => x.Name == user).FirstOrDefault().Id;
-            return r;
+            var iscreated = context.Users.Any(x => x.Name == user);
+            if (iscreated)
+            {
+                var r = context.Users.Where(x => x.Name == user).FirstOrDefault().Id;
+                return r;
+            }
+            else
+            {
+                return 0;
+            }
+          
         }
 
         public bool UserAlreadyExists(string name)

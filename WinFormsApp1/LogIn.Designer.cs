@@ -95,14 +95,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 304);
+            this.ClientSize = new System.Drawing.Size(434, 311);
             this.Controls.Add(this.CreatUserBuutton);
             this.Controls.Add(this.PasswordLogin);
             this.Controls.Add(this.UserLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.MaximumSize = new System.Drawing.Size(450, 350);
+            this.MinimumSize = new System.Drawing.Size(450, 350);
             this.Name = "LogIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

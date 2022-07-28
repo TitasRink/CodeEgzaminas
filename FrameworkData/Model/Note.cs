@@ -11,9 +11,10 @@ namespace FrameworkData.Model
         [Required]
         public string Name { get; set; }
         public string Message { get; set; }
-        public string ImgURL { get; set; }
+
         [ForeignKey("User")]
         public int UserId { get; set; }
+        public List<Image> Images { get; set; }
         public List<Category> Categories { get; set; }
 
         public Note(string title, string message)

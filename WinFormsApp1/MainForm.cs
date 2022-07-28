@@ -1,13 +1,15 @@
 ﻿using Bussiness.AccesssData;
-using System.Drawing;
+using FrameworkData.DataContext;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
-
+using Image = FrameworkData.Model.Image;
 
 namespace WinFormsApp1
 {
     public partial class MainForm : Form
     {
-
+        public DataConection context = new DataConection();
         private readonly CategoryService categoryService = new CategoryService();
         private readonly NoteService noteService = new NoteService();
        
@@ -45,12 +47,8 @@ namespace WinFormsApp1
 
         private void AddCategorybutton_Click(object sender, System.EventArgs e)
         {
-            if (string.IsNullOrEmpty(RenameCategoryTextBox.Text))
-            {
-                MessageBox.Show("Please fill up fields");
-            }
-            else
-            {
+          
+            
                 CategorylistView.Items.Clear();
                 var cattegory = AddCategorytextBox1.Text;
 
@@ -64,7 +62,7 @@ namespace WinFormsApp1
                     CategorylistView.Items.Add(list);
                 }
                 AddCategorytextBox1.Text = "";
-            }
+            
        
         }
 
@@ -121,16 +119,28 @@ namespace WinFormsApp1
       
         }
 
+        string conection = "Server=localhost;Database=NoteEXAM;Trusted_Connection=True;";
         private void button2_Click(object sender, System.EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Filter = "Image Files (*.jpg;*.jepg;.*.gif;) |*.jpg;*.jepg;.*.gif";
+
+            MemoryStream ms = new MemoryStream() ;
+            var fileName = openFile.FileName;
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                var fileName = openFile.FileName;
-                pictureBox1.Image = new Bitmap(fileName);
-                textBox5.Text = fileName;
+                pictureBox1.Load(openFile.FileName);
+               fileName = openFile.FileName;
             }
+
+            byte[] imgdata = File.ReadAllBytes(fileName);
+
+
+            var ff = context.Notes.Where(x => x.Name == NoteListViewItem.SelectedItems[0].Text).FirstOrDefault().Id;
+            context.Images.Add(new Image(imgdata, ff));
+            context.SaveChanges();
+            MessageBox.Show("IMG added to note");
+
         }
 
         private void AddButtonNote_Click(object sender, System.EventArgs e)
@@ -227,7 +237,7 @@ namespace WinFormsApp1
         {
             var catText = CategorylistView.SelectedItems[0].Text;
 
-            var result = noteService.FindNotesByCategoryName(catText);
+            var result = noteService.FindNotesByCategoryName(catText, LogIn.UserID);
 
             NoteListViewItem.Items.Clear();
             
@@ -247,6 +257,7 @@ namespace WinFormsApp1
             {
                 ListViewItem list = new ListViewItem(item.Name.ToString());
                 list.SubItems.Add(item.Message.ToString());
+                //list.SubItems.Add(item.Images.ToString());
                 NoteListViewItem.Items.Add(list);
             }
         }
@@ -257,13 +268,43 @@ namespace WinFormsApp1
 
             NoteListViewItem.Items.Clear();
 
-            var notes = noteService.FindNotesByName(noteSetectedFromList);
+            var notes = noteService.FindNotesByName(noteSetectedFromList, LogIn.UserID);
             foreach (var item in notes)
             {
                 ListViewItem list = new ListViewItem(item.Name.ToString());
                 list.SubItems.Add(item.Message.ToString());
                 NoteListViewItem.Items.Add(list);
             }
+        }
+
+        private void button5_Click(object sender, System.EventArgs e)
+        {
+          
+                var id = context.Notes.Where(x => x.Name == NoteListViewItem.SelectedItems[0].Text).FirstOrDefault().Id;
+
+
+            if (id == null)
+                {
+                MessageBox.Show("pick note");
+            }
+            
+            else if (context.Images.Any(x => x.NoteId == id))
+            {
+                var im = context.Images.Where(x => x.NoteId == id).FirstOrDefault().Byte;
+
+                using (MemoryStream ms = new MemoryStream(im))
+                {
+                    var returnImage = System.Drawing.Image.FromStream(ms);
+                    pictureBox2.Image = null;
+                    pictureBox2.Image = returnImage;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No image in Note");
+            }
+     
+
         }
     }
 }

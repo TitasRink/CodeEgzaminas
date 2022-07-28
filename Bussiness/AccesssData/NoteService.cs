@@ -9,6 +9,7 @@ namespace Bussiness.AccesssData
     public class NoteService 
     {
         public DataConection context = new DataConection();
+
         public void CreateNote(string name, string address, int userId)
         {
 
@@ -32,6 +33,7 @@ namespace Bussiness.AccesssData
 
         public void EditTheNote(string noteId, string noteContent)
         {
+           
             var note = context.Notes.Where(x => x.Name == noteId).FirstOrDefault();
 
 
@@ -50,34 +52,45 @@ namespace Bussiness.AccesssData
         }
 
 
-        public List<Note> FindNotesByName(string name)
+        public List<Note> FindNotesByName(string name, int userID)
         {
+            var notes = context.Users.Include(x => x.Notes).Where(i => i.Id == userID).FirstOrDefault().Notes.Where(x=>x.Name == name).ToList();
+            //var filteredNotes = context.Notes
+             //   .Where(i => i.Name == name).ToList();
 
-            var filteredNotes = context.Notes
-                .Where(i => i.Name == name).ToList();
-
-            return filteredNotes;
+            return notes;
         }
 
-        public List<Note> FindNotesByCategoryName(string categoryName)
+        public List<Note> FindNotesByCategoryName(string categoryName, int userID)
         {
+            var filteredNotes = context.Notes
+                .Include(x => x.Categories)
+                .Where(x=>x.Categories.Any(x=>x.Name == categoryName))
+                .Include(i => i.Images)
+                .Where(x => x.UserId == userID)
+                .ToList();
 
-            var filteredNotes = context.Categories
-                .Include(i => i.Notes)
-                .Where(i => i.Name == categoryName).FirstOrDefault().Notes.ToList();
+
+            //var filteredNotes = context.Categories
+            //    .Include(i => i.Notes)
+            //    .Where(x=>x.UserId == userID)
+            //    .Where(i => i.Name == categoryName).FirstOrDefault().Notes.ToList();
 
             return filteredNotes;
         }
 
         public List<Note> GetAllNotesByUser(int userId)
         {
-
+            
             var notes = context.Notes
                 .Include(i => i.Categories)
+                .Include(i => i.Images)
                 .Where(i => i.UserId == userId)
                 .ToList();
 
             return notes;
         }
+
+
     }
 }
